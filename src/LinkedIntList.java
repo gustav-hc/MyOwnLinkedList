@@ -8,6 +8,10 @@ public class LinkedIntList {
     public LinkedIntList() {
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public Node getTail() {
         return tail;
     }
@@ -137,6 +141,12 @@ public class LinkedIntList {
         }
         current.setNext(current.getNext().getNext());
         size--;
+    }
+
+
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 }
 
