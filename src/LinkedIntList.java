@@ -100,7 +100,7 @@ public class LinkedIntList {
             return;
         }
 
-        if (size == 1)  {
+        if (size == 1) {
             setTail(null);
             setHead(null);
             size--;
@@ -113,10 +113,30 @@ public class LinkedIntList {
                 setTail(current);
                 size--;
                 return;
-            }
-            else {
+            } else {
                 current = current.getNext();
             }
         }
     }
+
+    public void removeAtIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + " Out of bounds");
+        }
+        if (index == 0) {
+            removeFirst();
+            return;
+        }
+        if (index == size - 1) {
+            removeLast();
+            return;
+        }
+        Node current = getHead();
+        for (int i = 0; i < index - 1; i++) {
+            current = current.getNext();
+        }
+        current.setNext(current.getNext().getNext());
+        size--;
+    }
 }
+

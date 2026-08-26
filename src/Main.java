@@ -8,11 +8,18 @@ public class Main {
         list.addLast(30);
         list.addLast(7);
         list.addLast(9);
-//
+
         list.printList();
-//        list.removeFirst();
-        list.removeLast();
+
+        list.removeAtIndex(2);
+
         list.printList();
+
+        list.removeAtIndex(3);
+
+        list.printList();
+
+
 
     }
 }
