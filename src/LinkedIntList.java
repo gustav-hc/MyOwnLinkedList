@@ -148,5 +148,30 @@ public class LinkedIntList {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    public void addAtIndex(int index, int value) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index: " + index + " Out of bounds");
+        }
+        if (index == 0) {
+            addFirst(value);
+            return;
+        }
+        if (index == size) {
+            addLast(value);
+            return;
+        }
+        Node current = getHead();
+        Node newNode = new Node(value);
+        for (int i = 0; i < index - 1; i++) {
+            current = current.getNext();
+        }
+        newNode.setNext(current.getNext());
+        current.setNext(newNode);
+        size++;
+
+
+
+    }
 }
 
