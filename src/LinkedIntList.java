@@ -2,6 +2,7 @@
 public class LinkedIntList {
     private Node head;
     private Node tail;
+    private int size = 0;
 
 
     public LinkedIntList() {
@@ -30,6 +31,7 @@ public class LinkedIntList {
         }
         node.setNext(head);
         head = node;
+        size++;
     }
 
     public void addLast(int value) {
@@ -42,6 +44,7 @@ public class LinkedIntList {
             getTail().setNext(node);
             tail = node;
         }
+        size++;
     }
 
 
@@ -51,7 +54,9 @@ public class LinkedIntList {
             System.out.println(current.getValue());
             current = current.getNext();
 
+
         }
+        System.out.println("Size of list: " + size);
     }
 
     public boolean contains(int value) {
@@ -67,6 +72,13 @@ public class LinkedIntList {
     }
 
     public int get(int index) {
-
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + " Out of bounds");
+        }
+        Node current = getHead();
+        for (int i = 0; i < index; i++) {
+            current = current.getNext();
+        }
+        return current.getValue();
     }
 }

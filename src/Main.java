@@ -10,10 +10,6 @@ public class Main {
         list.addLast(9);
 
         list.printList();
-
-        System.out.println(list.contains(10));
-        System.out.println(list.contains(8));
-
     }
 }
 
