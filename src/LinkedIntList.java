@@ -81,4 +81,42 @@ public class LinkedIntList {
         }
         return current.getValue();
     }
+
+    public void removeFirst() {
+        if (size == 0) {
+            System.out.println("Empty list");
+        } else {
+            setHead(getHead().getNext());
+            size--;
+        }
+        if (size == 0) {
+            setTail(null);
+        }
+    }
+
+    public void removeLast() {
+        if (size == 0) {
+            System.out.println("Empty list");
+            return;
+        }
+
+        if (size == 1)  {
+            setTail(null);
+            setHead(null);
+            size--;
+            return;
+        }
+        Node current = getHead();
+        for (int i = 0; i < size; i++) {
+            if (current.getNext() == tail) {
+                current.setNext(null);
+                setTail(current);
+                size--;
+                return;
+            }
+            else {
+                current = current.getNext();
+            }
+        }
+    }
 }
